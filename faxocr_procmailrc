@@ -1,0 +1,18 @@
+DEFAULT="$HOME/Maildir/"
+LOGFILE="/var/log/procmail.log"
+#
+# messageplus
+# -----------------------------------------------------------------------------
+# forward the mail to root except the Fax Mail
+:0 H
+* ^From:.*everynet.jp>?$
+* ! ^X-MPlus-MsgType: 1
+/home/faxocr/Maildir/new/.
+
+# BizFax
+# -----------------------------------------------------------------------------
+# forward the mail to root except the Fax Mail
+:0 H
+* ^From:.*@050fax.jp>?$
+* ! ^From:.*fc-mail@050fax.jp>?$
+/home/faxocr/Maildir/new/.
